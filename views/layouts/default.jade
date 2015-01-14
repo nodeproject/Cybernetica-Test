@@ -1,0 +1,80 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Cybernetica Test App
+    link(href='http://fonts.googleapis.com/css?family=Lato:400,700', rel='stylesheet', type='text/css')
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  body
+    header
+      a.logo.fa.fa-github.fa-3x(href='/')
+      ul#main-nav
+        li
+          a(href='https://github.com/explore') Explore
+        li
+          a(href='https://gist.github.com/') Gist
+        li
+          a(href='https://github.com/blog') Blog
+        li
+          a(href='https://help.github.com/') Help
+      .header-actions.clearfix
+        p.search
+          input(type='text', placeholder='Search GitHub')
+          a.fa.fa-search(href='javascript:void(0)')
+        p.user-menu
+          a.icon(href='https://github.com/')
+            i.fa.fa-user.fa-2x
+          a.arrow(href='https://github.com/')
+            i.fa.fa-sort-desc
+    #after-header
+      p.account-switcher-container
+        a.btn.btn-default(href='https://github.com/')
+          i.fa.fa-user.fa-2x
+          span nodeproject
+          i.fa.fa-sort-desc
+      ul.sub-nav
+        li(class=(title === 'Home' ? 'active' : ''))
+          a(href='/')
+            i.fa.fa-eye
+            span Overview
+        li(class=(title === 'Pulls' ? 'active' : ''))
+          a(href='/pulls')
+            i.fa.fa-code-fork
+            span Pull Requests
+            if pull.length > 0
+              span.count
+                =pull.length
+        li(class=(title === 'Issues' ? 'active' : ''))
+          a(href='/issues')
+            i.fa.fa-exclamation-circle
+            span Issues
+    #main
+      block content
+    footer
+      .content
+        .footer-nav.clearfix
+          ul.lfloat
+            li
+              a(href='https://help.github.com/articles/github-terms-of-service/') Terms
+            li
+              a(href='https://help.github.com/articles/github-privacy-policy/') Privacy
+            li
+              a(href='https://help.github.com/articles/github-security/') Security
+            li
+              a(href='https://github.com/contact') Contact
+          a.logo.fa.fa-github.fa-3x(href='/')
+          ul.rfloat
+            li
+              a(href='https://status.github.com/') Status
+            li
+              a(href='https://developer.github.com/') API
+            li
+              a(href='https://training.github.com/') Training
+            li
+              a(href='https://github.myshopify.com/') Shop
+            li
+              a(href='https://github.com/blog') Blog
+            li
+              a(href='https://github.com/about') About
+        p.copyright © 2015 GitHub, Inc.

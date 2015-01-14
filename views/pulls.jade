@@ -1,0 +1,14 @@
+extends layouts/default.jade
+
+block content
+  .content-fluid
+    each pulls in pull
+      div.pull-item
+        i.fa.fa-code-fork.fa-3x
+        ul
+          li
+            a(href='#{pulls.html_url}')=pulls.title
+          li opened 
+            =moment(pulls.created_at)
+          li.author by 
+            =pulls.user.login

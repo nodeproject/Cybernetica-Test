@@ -1,0 +1,29 @@
+extends layouts/default.jade
+
+block content
+  .content-fluid
+      .col1
+        ul.repositories
+          each repos in repo
+            li
+              i.fa.fa-users
+              a(href='#{repos.html_url}')= repos.full_name
+              span.updated Updated 
+                = moment(repos.pushed_at)
+      .col2
+        .sidebar
+          .new-repository
+            img(src='images/repos-illustration.png', alt='Repository illustration', title='', width='259', height='192')
+            a.btn.btn-default.large(href='https://github.com/') Create New Repository
+          .events
+            h2 Latest Commits
+            each events in event
+              if events.payload.commits
+                .item
+                  i.fa.fa-user.fa-2x
+                  ul
+                    li.desc
+                      a(href='https://github.com/nodeproject/Cybernetica-Test/commit/#{events.payload.commits[0].sha}')= events.payload.commits[0].message
+                    li.repo= events.repo.name
+                    li.author= events.payload.commits[0].author.name
+                      span= moment(events.created_at)
